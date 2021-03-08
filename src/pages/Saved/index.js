@@ -7,7 +7,7 @@ export const Saved = () => {
     const [saved, setSaved] = useState(() => {
         return localStorage.getItem('memes') != null ? JSON.parse(localStorage.getItem('memes')) : []
     });
-    
+
     useEffect(() => {
         localStorage.setItem('memes', JSON.stringify(saved))
     }, [saved])
@@ -24,7 +24,7 @@ export const Saved = () => {
                         {saved && saved.map((id) => (
                             <ImageContainerSaved 
                                 id={id}
-                                save={saved}
+                                saved={saved}
                                 setSaved={setSaved}
                                 className="images"
                             />
