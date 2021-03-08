@@ -12,45 +12,6 @@ export const Style = styled.div`
         padding: 0px;
     }
 
-    .navbar {
-        width: 100%;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-        position: absolute;
-        top: 0%;
-        background-color: white;
-        -webkit-box-shadow: 10px 14px 21px -26px rgba(0,0,0,0.75);
-        -moz-box-shadow: 10px 14px 21px -26px rgba(0,0,0,0.75);
-        box-shadow: 10px 14px 21px -26px rgba(0,0,0,0.75);
-        
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        
-        .navbar-title {
-            padding-left: 5rem;
-        }
-        .navbar-links {
-            padding-right: 5rem;
-            ul {
-                list-style-type: none;
-                display: flex;
-                flex-direction: row;
-                li {
-                    text-decoration: none;
-                    font-weight: 600;
-                    margin-left: 3rem;
-                }
-            }
-        }
-
-        a {
-            font-weight: 700;
-            font-size: 18px;
-        }
-    }
-
     .content {
         /* background-color: red; */
         min-height: 72vh;
@@ -91,10 +52,15 @@ export const Style = styled.div`
         }
         .searched-content {
             /* background-color: yellow; */
-            width: 70%;
+            width: 80%;
             display: flex;
             align-items: center;
             flex-direction: column;
+            .images {
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+            }
         }
     }
     

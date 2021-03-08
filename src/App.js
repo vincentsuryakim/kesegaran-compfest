@@ -4,11 +4,13 @@ import { Switch, Route, BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import { Landing } from './pages/Landing'
 import { Saved } from './pages/Saved'
+import { Navbar } from './components/Navbar'
 
 function App() {
   return (
     <>
       <Router>
+        <Navbar />
         <Switch>
           <Route 
             key={"/"}

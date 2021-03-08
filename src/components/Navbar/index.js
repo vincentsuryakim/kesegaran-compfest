@@ -38,6 +38,11 @@ const Style = styled.div`
                     text-decoration: none;
                     font-weight: 600;
                     margin-left: 3rem;
+                    .linked {
+                        text-decoration: none;
+                        color: black;
+                        font-size: 16px;
+                    }
                 }
             }
         }
@@ -58,8 +63,8 @@ export const Navbar = () => {
             </div>
             <div className="navbar-links">
                 <ul>
-                    <li>Explore</li>
-                    <li><Link to="/saved">Saved</Link></li>
+                    <li><Link to="/" className="linked">Explore</Link></li>
+                    <li><Link to="/saved" className="linked">Saved</Link></li>
                 </ul>
             </div>
         </div>

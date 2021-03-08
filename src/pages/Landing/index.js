@@ -62,17 +62,6 @@ export const Landing = () => {
 
     return (
         <Style initialPage={initialPage}>
-            <div className="navbar">
-                <div className="navbar-title">
-                    <a>KESEGARAN COMPFEST</a>
-                </div>
-                <div className="navbar-links">
-                    <ul>
-                        <li>Explore</li>
-                        <li><Link to="/saved">Saved</Link></li>
-                    </ul>
-                </div>
-            </div>
             <div className="content">
                 <div className="search">
                     <p>Explore.</p>
@@ -81,12 +70,12 @@ export const Landing = () => {
                 </div>
                 {!initialPage &&
                     <div className="searched-content">
-                        <Masonry columnsCount={5} gutter="10px">
+                        <Masonry columnsCount={5} gutter="25px">
                             {images.map((image, i) => (
                                 <img
                                     key={i}
                                     src={image}
-                                    style={{width: "100%", display: "block"}}
+                                    className="images"
                                 />
                             ))}
                         </Masonry>
