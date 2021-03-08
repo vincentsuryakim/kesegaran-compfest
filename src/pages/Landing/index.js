@@ -62,7 +62,7 @@ export const Landing = () => {
 
     return (
         <Style initialPage={initialPage}>
-            {/* <div className="navbar">
+            <div className="navbar">
                 <div className="navbar-title">
                     <a>KESEGARAN COMPFEST</a>
                 </div>
@@ -72,7 +72,7 @@ export const Landing = () => {
                         <li><Link to="/saved">Saved</Link></li>
                     </ul>
                 </div>
-            </div> */}
+            </div>
             <div className="content">
                 <div className="search">
                     <p>Explore.</p>

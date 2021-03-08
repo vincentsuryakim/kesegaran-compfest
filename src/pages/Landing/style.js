@@ -12,7 +12,7 @@ export const Style = styled.div`
         padding: 0px;
     }
 
-    /* .navbar {
+    .navbar {
         width: 100%;
         padding-top: 2rem;
         padding-bottom: 2rem;
@@ -49,18 +49,19 @@ export const Style = styled.div`
             font-weight: 700;
             font-size: 18px;
         }
-    } */
+    }
+
     .content {
         /* background-color: red; */
         min-height: 72vh;
-        padding-top: 18vh;
+        padding-top: 15vh;
         display: flex;
         flex-direction: column;
         justify-content: "flex-start";
         align-items: center;
 
         .search {
-            transform: ${props => props.initialPage ? "translateY(10rem)" : ""};
+            transform: ${props => props.initialPage ? "translateY(11rem)" : ""};
             transition: 0.15s linear;
             background-color: white;
             margin-bottom: 2rem;
@@ -96,10 +97,11 @@ export const Style = styled.div`
             flex-direction: column;
         }
     }
+    
     .footer {
         background-color: rgb(243, 244, 246);
-        margin-top: 2rem;
         width: 100%;
+        margin-top: 3vh;
 
         * {
             color: rgb(156, 163, 175, 1);
