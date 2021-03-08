@@ -14,8 +14,8 @@ export const Style = styled.div`
 
     .content {
         /* background-color: red; */
-        min-height: 72vh;
-        padding-top: 15vh;
+        min-height: calc(100vh - 85px - 85px - 3vh);
+        padding-top: ${props => props.initialPage ? "85px" : "150px"};
         display: flex;
         flex-direction: column;
         justify-content: "flex-start";
@@ -68,17 +68,23 @@ export const Style = styled.div`
         background-color: rgb(243, 244, 246);
         width: 100%;
         margin-top: 3vh;
+        /* position: fixed;
+        bottom: 0; */
+        height: 85px;
+        display: flex;
+        align-items: center;
 
         * {
             color: rgb(156, 163, 175, 1);
         }
-
         footer {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+            width: 100%;
+            /* padding-top: 2rem;
+            padding-bottom: 2rem; */
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            /* background-color: red; */
             .title {
                 padding-left: 5rem;
             }

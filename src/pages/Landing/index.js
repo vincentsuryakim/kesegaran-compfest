@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Masonry from "react-responsive-masonry"
-import { Link } from 'react-router-dom'
 import { Style } from './style'
+import { ImageContainer } from './../../components/ImageContainer'
+import { InMemoryCache, ApolloClient, gql } from '@apollo/client'
 
 export const Landing = () => {
     const [searchText, setSearchText] = useState('')
@@ -9,7 +10,23 @@ export const Landing = () => {
     const [initialPage, setInitialPage] = useState(true)
     const [loading, setLoading] = useState(false)
 
-    // kalo loading == false, display datanya, tapi ini muncul problem pas di initial page. maka gua kasih state baru yaitu initialpage
+    const [searchedArray, setSearchedArray] = useState([])
+
+    const [saved, setSaved] = useState(() => {
+        return localStorage.getItem('memes') != null ? JSON.parse(localStorage.getItem('memes')) : []
+    });
+
+    useEffect(() => {
+        localStorage.setItem('memes', JSON.stringify(saved))
+    }, [saved])
+
+    const client = new ApolloClient({
+        cache: new InMemoryCache(),
+        uri: "https://oprec-backend.compfest.id/v1/graphql",
+        headers: {
+            Authorization: "Bearer eyJ0eXAiOiJqd3QiLCJhbGciOiJSUzI1NiIsImtpZCI6IlpDUzM2TlRmRTY0OWNySk9EY2NDbldWVEg4UmduUjRDaUhURnFydzlUTTAifQ.eyJleHAiOjE2MTU2NDg1OTAsImlhdCI6MTYxNDQzODk5MCwic3ViIjoiMzQzZDU5ODctMzA2YS00ODE1LThkY2ItZmEyZmQwZmY1MjNiIiwiaHR0cHM6Ly9oYXN1cmEuaW8vand0L2NsYWltcyI6eyJ4LWhhc3VyYS11c2VyLWlkIjoiMzQzZDU5ODctMzA2YS00ODE1LThkY2ItZmEyZmQwZmY1MjNiIiwieC1oYXN1cmEtYWxsb3dlZC1yb2xlcyI6WyJhcHBsaWNhbnQiXSwieC1oYXN1cmEtZGVmYXVsdC1yb2xlIjoiYXBwbGljYW50In19.GttBtNbVqCEMA2kJkFs1o_Sq_SUqLA9YRHqRYLm-o0pHuvLIM448tl36pnpy42NQet9grBfKeR-wTORgZXBpAfegGEcJi5fJnjP75ZuSvuhl8ekjme313Hu-Z1av9m3s6C0dR6opUtYJ6UVtsIHrotb3SEIzFOEIWcy_pcAQHSgmi30c6mK2k79u7Ey7HjKOnGB-e8QuCLueFmYXgSUSxsxRobDFMp43Q3qx-FLHFYOslDxsdMLXzOGj7KPM2NEX9Ts35W05CuVafjyWcpjEzxBGpoAR6RSc4kU-rehOzsmim0t7VoeVTqYzzCF1fOrWxoKuPJqB_qFQYICsVg8rvBnSM-fIFMc6hTddIpn56V2A9MhGLblLl9FR05qlfQwBp13O2kRckML7CBBJugzonuaG0lmA37J6IE3GKwzRhdDwO-rhgmZfD20ydQHv5pBUwUf6OrAEs8629eBNrq_RrEXpQimzy-_2mxbpcRamgR-CQhq2XydB6ew84oowezpMBZEC-aWWUdGaWJaFiP-bcR6j7eUhTgchWNJM7N0m4k349IgMS1ii_G-JFhkP3-YbYMfLjj3LR2-MnLbtX8w1XkikElqTKfrsK5udFQvJ8MJ9iWnaLo_Ti1cP-aUXZum-G5Be3foJd33p_N8jnXa8KQs-_My0LHZiHQx46Zix27M"
+        }
+    })
 
     const searchNow = (e) => {
         if (e === 'Enter') {
@@ -21,44 +38,27 @@ export const Landing = () => {
             }
 
             setLoading(true)
+
             // kasih animation loading gitu
-            // fetch dari backend
-            // kalo udah, setLoading(false)
-            // tampilin datanya
 
-
-            console.log("search this: "+searchText)
-                
-            setLoading(false)
+            client.query({
+                query: gql`
+                    query Memes {
+                        memes(where: {_or: [{title: {_ilike: "%${searchText}%"}}, {description: {_ilike: "%${searchText}%"}}]}) {
+                        id
+                        title
+                        image_url
+                        description
+                        }
+                    }                  
+                `
+            }).then(result => {
+                console.log(result.data.memes)
+                setSearchedArray(result.data.memes)
+                setLoading(false)
+            })
         }
     }
-
-    const images = [
-        "https://picsum.photos/200/300?image=1050",
-        'http://images.unsplash.com/photo-1485550409059-9afb054cada4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxzZWFyY2h8MXx8cmFuZG9tfHwwfHx8&ixlib=rb-1.2.1&q=80&w=1080',
-        "https://picsum.photos/300/300?image=206",
-        'https://i.pinimg.com/originals/5b/b4/8b/5bb48b07fa6e3840bb3afa2bc821b882.jpg',
-        'http://newnation.sg/wp-content/uploads/random-pic-internet-22.jpg',
-        'https://phillipbrande.files.wordpress.com/2013/10/random-pic-14.jpg',
-        "https://picsum.photos/200/300?image=1050",
-        'http://images.unsplash.com/photo-1485550409059-9afb054cada4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxzZWFyY2h8MXx8cmFuZG9tfHwwfHx8&ixlib=rb-1.2.1&q=80&w=1080',
-        "https://picsum.photos/300/300?image=206",
-        'https://i.pinimg.com/originals/5b/b4/8b/5bb48b07fa6e3840bb3afa2bc821b882.jpg',
-        'http://newnation.sg/wp-content/uploads/random-pic-internet-22.jpg',
-        'https://phillipbrande.files.wordpress.com/2013/10/random-pic-14.jpg',
-        "https://picsum.photos/200/300?image=1050",
-        'http://images.unsplash.com/photo-1485550409059-9afb054cada4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxzZWFyY2h8MXx8cmFuZG9tfHwwfHx8&ixlib=rb-1.2.1&q=80&w=1080',
-        "https://picsum.photos/300/300?image=206",
-        'https://i.pinimg.com/originals/5b/b4/8b/5bb48b07fa6e3840bb3afa2bc821b882.jpg',
-        'http://newnation.sg/wp-content/uploads/random-pic-internet-22.jpg',
-        'https://phillipbrande.files.wordpress.com/2013/10/random-pic-14.jpg',
-        "https://picsum.photos/200/300?image=1050",
-        'http://images.unsplash.com/photo-1485550409059-9afb054cada4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxMjA3fDB8MXxzZWFyY2h8MXx8cmFuZG9tfHwwfHx8&ixlib=rb-1.2.1&q=80&w=1080',
-        "https://picsum.photos/300/300?image=206",
-        'https://i.pinimg.com/originals/5b/b4/8b/5bb48b07fa6e3840bb3afa2bc821b882.jpg',
-        'http://newnation.sg/wp-content/uploads/random-pic-internet-22.jpg',
-        'https://phillipbrande.files.wordpress.com/2013/10/random-pic-14.jpg',
-    ]
 
     return (
         <Style initialPage={initialPage}>
@@ -70,11 +70,15 @@ export const Landing = () => {
                 </div>
                 {!initialPage &&
                     <div className="searched-content">
-                        <Masonry columnsCount={5} gutter="25px">
-                            {images.map((image, i) => (
-                                <img
-                                    key={i}
-                                    src={image}
+                        <Masonry columnsCount={3} gutter="25px">
+                            {searchedArray.map((image) => (
+                                <ImageContainer 
+                                    id={image.id}
+                                    src={image.image_url}
+                                    description={image.description}
+                                    isSaved={saved.includes(image.id) ? true : false}
+                                    saved={saved}
+                                    setSaved={setSaved}
                                     className="images"
                                 />
                             ))}

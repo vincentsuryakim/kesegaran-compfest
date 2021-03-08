@@ -10,9 +10,10 @@ const Style = styled.div`
     }
 
     .navbar {
+        height: 85px;
         width: 100%;
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        /* padding-top: 2rem; */
+        /* padding-bottom: 2rem; */
         position: absolute;
         top: 0%;
         background-color: white;

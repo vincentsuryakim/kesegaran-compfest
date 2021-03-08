@@ -15,9 +15,24 @@ export const Style = styled.div`
         min-height: 72vh;
         padding-top: 16vh;
         display: flex;
-        justify-content: center;
+        align-items: center;
+        flex-direction: column;
         .title {
             font-size: 18px;
+            /* background-color: green; */
+            margin-bottom: 2rem;
+        }
+        .saved-content {
+            /* background-color: yellow; */
+            width: 80%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            .images {
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+            }
         }
     }
     .footer {
