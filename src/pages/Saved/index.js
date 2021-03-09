@@ -70,7 +70,7 @@ export const Saved = () => {
                             <a href="https://www.linkedin.com/in/vincent-suryakim-70a80a1b6/">
                                 <img src={linkedin} />
                             </a>
-                            <a href="">
+                            <a href="https://line.me/en/">
                                 <img src={line} />
                             </a>
                         </ul>
