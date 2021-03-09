@@ -12,8 +12,8 @@ export const Style = styled.div`
 
     .content {
         /* background-color: red; */
-        min-height: 72vh;
-        padding-top: 16vh;
+        min-height: calc(100vh - 85px - 85px - 3vh - 65px);
+        padding-top: 150px;
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -31,27 +31,34 @@ export const Style = styled.div`
             .images {
                 width: 100%;
                 display: block;
-                border-radius: 5px;
+                border-radius: 8px;
             }
         }
     }
     .footer {
-        background-color: rgb(243, 244, 246);
+        background-color: #F6F6F6;
         width: 100%;
         margin-top: 3vh;
+        height: 85px;
+        display: flex;
+        align-items: center;
 
         * {
-            color: rgb(156, 163, 175, 1);
+            color: #999999;
         }
 
         footer {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
+            width: 100%;
+            /* padding-top: 2rem;
+            padding-bottom: 2rem; */
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             .title {
                 padding-left: 5rem;
+                a {
+                    font-weight: 800;
+                }
             }
             .social {
                 ul {
@@ -60,10 +67,7 @@ export const Style = styled.div`
                     img {
                         margin-left: 0.5rem;
                         margin-right: 0.5rem;
-                    }
-                    p {
-                        margin-left: 0.5rem;
-                        margin-right: 0.5rem;
+                        cursor: pointer;
                     }
                 }
             }

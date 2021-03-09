@@ -14,7 +14,7 @@ export const Style = styled.div`
 
     .content {
         /* background-color: red; */
-        min-height: calc(100vh - 85px - 85px - 3vh);
+        min-height: ${props => props.initialPage ? "calc(100vh - 85px - 85px - 3vh)" : "calc(100vh - 85px - 85px - 3vh - 65px)"};
         padding-top: ${props => props.initialPage ? "85px" : "150px"};
         display: flex;
         flex-direction: column;
@@ -59,13 +59,13 @@ export const Style = styled.div`
             .images {
                 width: 100%;
                 display: block;
-                border-radius: 5px;
+                border-radius: 8px;
             }
         }
     }
     
     .footer {
-        background-color: rgb(243, 244, 246);
+        background-color: #F6F6F6;
         width: 100%;
         margin-top: 3vh;
         /* position: fixed;
@@ -75,8 +75,9 @@ export const Style = styled.div`
         align-items: center;
 
         * {
-            color: rgb(156, 163, 175, 1);
+            color: #999999;
         }
+
         footer {
             width: 100%;
             /* padding-top: 2rem;
@@ -87,6 +88,12 @@ export const Style = styled.div`
             /* background-color: red; */
             .title {
                 padding-left: 5rem;
+                display: flex;
+                align-items: center;
+                a {
+                    margin-left: 0.3rem;
+                    font-weight: 800;
+                }
             }
             .social {
                 ul {
@@ -95,10 +102,7 @@ export const Style = styled.div`
                     img {
                         margin-left: 0.5rem;
                         margin-right: 0.5rem;
-                    }
-                    p {
-                        margin-left: 0.5rem;
-                        margin-right: 0.5rem;
+                        cursor: pointer;
                     }
                 }
             }

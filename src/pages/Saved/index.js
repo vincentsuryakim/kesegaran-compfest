@@ -3,6 +3,13 @@ import Masonry from "react-responsive-masonry"
 import { Style } from './style'
 import { ImageContainerSaved } from './../../components/ImageContainerSaved'
 
+import facebook from './../assets/social/facebook.svg'
+import instagram from './../assets/social/instagram.svg'
+import line from './../assets/social/line.svg'
+import linkedin from './../assets/social/linkedin.svg'
+import twitter from './../assets/social/twitter.svg'
+import youtube from './../assets/social/youtube.svg'
+
 export const Saved = () => {
     const [saved, setSaved] = useState(() => {
         return localStorage.getItem('memes') != null ? JSON.parse(localStorage.getItem('memes')) : []
@@ -39,13 +46,12 @@ export const Saved = () => {
                     </div>
                     <div className="social">
                         <ul>
-                            {/* <img src="https://www.random.org/analysis/randbitmap-wamp-section.png" /> */}
-                            <p>F</p>
-                            <p>T</p>
-                            <p>Y</p>
-                            <p>I</p>
-                            <p>L</p>
-                            <p>L</p>
+                            <img src={facebook} />
+                            <img src={twitter} />
+                            <img src={youtube} />
+                            <img src={instagram} />
+                            <img src={linkedin} />
+                            <img src={line} />
                         </ul>
                     </div>
                     <div className="copyright">

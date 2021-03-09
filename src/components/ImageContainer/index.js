@@ -1,6 +1,9 @@
 import React from 'react'
 import { Style } from './style'
 
+import savedpic from './assets/saved.svg'
+import savepic from './assets/save.svg'
+
 export const ImageContainer = ({ src, className, description, isSaved, saved, setSaved, id }) => {
     if (!saved) {
         setSaved([])
@@ -26,10 +29,16 @@ export const ImageContainer = ({ src, className, description, isSaved, saved, se
                     </div>
                     <div className="right" onClick={() => saveMeme()}>
                         {isSaved &&
-                            <h4>Saved</h4>
+                            <>
+                                <img src={savedpic} width="24px" height="24px" />
+                                <h4><span>Saved</span></h4>
+                            </>
                         }
                         {!isSaved &&
-                            <h4>Save</h4>
+                            <>
+                                <img src={savepic} width="24px" height="24px" />
+                                <h4>Save</h4>
+                            </>
                         }
                     </div>
                 </div>

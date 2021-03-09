@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Style } from './style'
 import { InMemoryCache, ApolloClient, gql } from '@apollo/client'
 
+import savedpic from './assets/saved.svg'
+
 export const ImageContainerSaved = ({ id, saved, setSaved, className }) => {
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
@@ -47,6 +49,7 @@ export const ImageContainerSaved = ({ id, saved, setSaved, className }) => {
                         <h4>{description}</h4>
                     </div>
                     <div className="right" onClick={() => unsaveMeme()}>
+                        <img src={savedpic} width="25px" height="25px" />
                         <h4>Saved</h4>
                     </div>
                 </div>

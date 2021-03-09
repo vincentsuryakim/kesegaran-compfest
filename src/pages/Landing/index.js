@@ -4,6 +4,15 @@ import { Style } from './style'
 import { ImageContainer } from './../../components/ImageContainer'
 import { InMemoryCache, ApolloClient, gql } from '@apollo/client'
 
+import search from './assets/search.svg'
+import facebook from './../assets/social/facebook.svg'
+import instagram from './../assets/social/instagram.svg'
+import line from './../assets/social/line.svg'
+import linkedin from './../assets/social/linkedin.svg'
+import twitter from './../assets/social/twitter.svg'
+import youtube from './../assets/social/youtube.svg'
+import logopic from './../assets/footer/logo.svg'
+
 export const Landing = () => {
     const [searchText, setSearchText] = useState('')
     const [searchBarHasBeenMoved, setSearchBarHasBeenMoved] = useState(false)
@@ -66,7 +75,7 @@ export const Landing = () => {
                 <div className="search">
                     <p>Explore.</p>
                     <input type="text" placeholder="search for memes..." onChange={(e) => setSearchText(e.target.value)} onKeyPress={(e) => searchNow(e.key)} />
-                    <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-512.png" width="25px" height="25px" />
+                    <img src={search} width="25px" height="25px" />
                 </div>
                 {!initialPage &&
                     <div className="searched-content">
@@ -89,17 +98,29 @@ export const Landing = () => {
             <div className="footer">
                 <footer>
                     <div className="title">
-                        <a>KESEGARAN COMPFEST</a>
+                        <img src={logopic} width="25px" height="25px" />
+                        <a>KESEGARAN.COMPFEST</a>
                     </div>
                     <div className="social">
                         <ul>
-                            {/* <img src="https://www.random.org/analysis/randbitmap-wamp-section.png" /> */}
-                            <p>F</p>
-                            <p>T</p>
-                            <p>Y</p>
-                            <p>I</p>
-                            <p>L</p>
-                            <p>L</p>
+                            <a href="">
+                                <img src={facebook} />
+                            </a>
+                            <a href="">
+                                <img src={twitter} />
+                            </a>
+                            <a href="">
+                                <img src={youtube} />
+                            </a>
+                            <a href="">
+                                <img src={instagram} />
+                            </a>
+                            <a href="">
+                                <img src={linkedin} />
+                            </a>
+                            <a href="">
+                                <img src={line} />
+                            </a>
                         </ul>
                     </div>
                     <div className="copyright">
