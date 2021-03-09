@@ -103,19 +103,19 @@ export const Landing = () => {
                     </div>
                     <div className="social">
                         <ul>
-                            <a href="">
+                            <a href="https://www.facebook.com">
                                 <img src={facebook} />
                             </a>
-                            <a href="">
+                            <a href="https://twitter.com/vinceennnttt">
                                 <img src={twitter} />
                             </a>
-                            <a href="">
+                            <a href="https://www.youtube.com">
                                 <img src={youtube} />
                             </a>
-                            <a href="">
+                            <a href="https://www.instagram.com/vincentsuryakim/">
                                 <img src={instagram} />
                             </a>
-                            <a href="">
+                            <a href="https://www.linkedin.com/in/vincent-suryakim-70a80a1b6/">
                                 <img src={linkedin} />
                             </a>
                             <a href="">

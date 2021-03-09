@@ -28,6 +28,40 @@ export const Style = styled.div`
             display: flex;
             align-items: center;
             flex-direction: column;
+            .no-memes {
+                background-color: #F0F7FE;
+                width: 100%;
+                height: 15rem;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .no-memes-inner {
+                    /* background-color: yellow; */
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    p {
+                        color: #999999;
+                        margin-bottom: 1rem;
+                        font-size: 16px;
+                    }
+                    button {
+                        border: transparent;
+                        background-color: #0266D3;
+                        padding-top: 12px;
+                        padding-bottom: 12px;
+                        padding-left: 24px;
+                        padding-right: 24px;
+                        color: white;
+                        border-radius: 8px;
+                        font-weight: 700;
+                        font-size: 16px;
+                        cursor: pointer;
+                    }
+                }
+            }
             .images {
                 width: 100%;
                 display: block;

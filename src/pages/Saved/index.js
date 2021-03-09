@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Masonry from "react-responsive-masonry"
 import { Style } from './style'
 import { ImageContainerSaved } from './../../components/ImageContainerSaved'
+import { Link } from 'react-router-dom'
 
 import facebook from './../assets/social/facebook.svg'
 import instagram from './../assets/social/instagram.svg'
@@ -19,7 +20,7 @@ export const Saved = () => {
         localStorage.setItem('memes', JSON.stringify(saved))
     }, [saved])
 
-
+    console.log(saved)
     return (
         <Style>
             <div className="content">
@@ -27,6 +28,14 @@ export const Saved = () => {
                     <h1>Your saved memes.</h1>
                 </div>
                 <div className="saved-content">
+                    {saved.length === 0 &&
+                        <div className="no-memes">
+                            <div className="no-memes-inner">
+                                <p>You have no saved memes. Explore now!</p>
+                                <Link to="/"><button>Explore</button></Link>
+                            </div>
+                        </div>
+                    }
                     <Masonry columnsCount={3} gutter="25px">
                         {saved && saved.map((id) => (
                             <ImageContainerSaved 
@@ -46,12 +55,24 @@ export const Saved = () => {
                     </div>
                     <div className="social">
                         <ul>
-                            <img src={facebook} />
-                            <img src={twitter} />
-                            <img src={youtube} />
-                            <img src={instagram} />
-                            <img src={linkedin} />
-                            <img src={line} />
+                            <a href="https://www.facebook.com">
+                                <img src={facebook} />
+                            </a>
+                            <a href="https://twitter.com/vinceennnttt">
+                                <img src={twitter} />
+                            </a>
+                            <a href="https://www.youtube.com">
+                                <img src={youtube} />
+                            </a>
+                            <a href="https://www.instagram.com/vincentsuryakim/">
+                                <img src={instagram} />
+                            </a>
+                            <a href="https://www.linkedin.com/in/vincent-suryakim-70a80a1b6/">
+                                <img src={linkedin} />
+                            </a>
+                            <a href="">
+                                <img src={line} />
+                            </a>
                         </ul>
                     </div>
                     <div className="copyright">
