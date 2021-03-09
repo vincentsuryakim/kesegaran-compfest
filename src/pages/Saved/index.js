@@ -10,6 +10,7 @@ import line from './../assets/social/line.svg'
 import linkedin from './../assets/social/linkedin.svg'
 import twitter from './../assets/social/twitter.svg'
 import youtube from './../assets/social/youtube.svg'
+import logopic from './../assets/footer/logo.svg'
 
 export const Saved = () => {
     const [saved, setSaved] = useState(() => {
@@ -51,27 +52,28 @@ export const Saved = () => {
             <div className="footer">
                 <footer>
                     <div className="title">
-                        <a>KESEGARAN COMPFEST</a>
+                        <img src={logopic} width="25px" height="25px" alt="logo" />
+                        <p>KESEGARAN.COMPFEST</p>
                     </div>
                     <div className="social">
                         <ul>
                             <a href="https://www.facebook.com">
-                                <img src={facebook} />
+                                <img src={facebook} alt="facebook" />
                             </a>
                             <a href="https://twitter.com/vinceennnttt">
-                                <img src={twitter} />
+                                <img src={twitter} alt="twitter" />
                             </a>
                             <a href="https://www.youtube.com">
-                                <img src={youtube} />
+                                <img src={youtube} alt="youtube" />
                             </a>
                             <a href="https://www.instagram.com/vincentsuryakim/">
-                                <img src={instagram} />
+                                <img src={instagram} alt="instagram" />
                             </a>
                             <a href="https://www.linkedin.com/in/vincent-suryakim-70a80a1b6/">
-                                <img src={linkedin} />
+                                <img src={linkedin} alt="linkedin" />
                             </a>
                             <a href="https://line.me/en/">
-                                <img src={line} />
+                                <img src={line} alt="line" />
                             </a>
                         </ul>
                     </div>

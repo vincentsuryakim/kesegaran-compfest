@@ -19,7 +19,6 @@ export const Landing = () => {
     const [searchText, setSearchText] = useState('')
     const [searchBarHasBeenMoved, setSearchBarHasBeenMoved] = useState(false)
     const [initialPage, setInitialPage] = useState(true)
-    const [loading, setLoading] = useState(false)
 
     const [searchedArray, setSearchedArray] = useState([])
 
@@ -48,10 +47,6 @@ export const Landing = () => {
                 setInitialPage(false)
             }
 
-            setLoading(true)
-
-            // kasih animation loading gitu
-
             client.query({
                 query: gql`
                     query Memes {
@@ -66,7 +61,6 @@ export const Landing = () => {
             }).then(result => {
                 console.log(result.data.memes)
                 setSearchedArray(result.data.memes)
-                setLoading(false)
             })
         }
     }
@@ -77,7 +71,7 @@ export const Landing = () => {
                 <div className="search">
                     <p>Explore.</p>
                     <input type="text" placeholder="search for memes..." onChange={(e) => setSearchText(e.target.value)} onKeyPress={(e) => searchNow(e.key)} />
-                    <img src={search} width="25px" height="25px" />
+                    <img src={search} width="25px" height="25px" alt="searchlogo" />
                 </div>
                 {!initialPage &&
                     <div className="searched-content">
@@ -100,28 +94,28 @@ export const Landing = () => {
             <div className="footer">
                 <footer>
                     <div className="title">
-                        <img src={logopic} width="25px" height="25px" />
-                        <a>KESEGARAN.COMPFEST</a>
+                        <img src={logopic} width="25px" height="25px" alt="logo" />
+                        <p>KESEGARAN.COMPFEST</p>
                     </div>
                     <div className="social">
                         <ul>
                             <a href="https://www.facebook.com">
-                                <img src={facebook} />
+                                <img src={facebook} alt="facebook" />
                             </a>
                             <a href="https://twitter.com/vinceennnttt">
-                                <img src={twitter} />
+                                <img src={twitter} alt="twitter" />
                             </a>
                             <a href="https://www.youtube.com">
-                                <img src={youtube} />
+                                <img src={youtube} alt="youtube" />
                             </a>
                             <a href="https://www.instagram.com/vincentsuryakim/">
-                                <img src={instagram} />
+                                <img src={instagram} alt="instagram" />
                             </a>
                             <a href="https://www.linkedin.com/in/vincent-suryakim-70a80a1b6/">
-                                <img src={linkedin} />
+                                <img src={linkedin} alt="linkedin" />
                             </a>
                             <a href="https://line.me/en/">
-                                <img src={line} />
+                                <img src={line} alt="line" />
                             </a>
                         </ul>
                     </div>

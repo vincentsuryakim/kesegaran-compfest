@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -18,8 +18,6 @@ const Style = styled.div`
     .navbar {
         height: 85px;
         width: 100%;
-        /* padding-top: 2rem; */
-        /* padding-bottom: 2rem; */
         position: absolute;
         top: 0%;
         background-color: white;
@@ -37,9 +35,10 @@ const Style = styled.div`
             align-items: center;
             padding-left: 5rem;
             color: #484848;
-            a {
+            p {
                 margin-left: 0.3rem;
                 font-weight: 800;
+                font-size: 18px;
             }
         }
         .navbar-links {
@@ -76,24 +75,22 @@ const Style = styled.div`
 `;
 
 export const Navbar = () => {
-    console.log(useLocation().pathname)
-
     return (
         <Style>
         <div className="navbar">
             <div className="navbar-title">
-                <img src={logopic} />
-                <a>KESEGARAN.COMPFEST</a>
+                <img src={logopic} alt="logo" />
+                <p>KESEGARAN.COMPFEST</p>
             </div>
             <div className="navbar-links">
                 <ul>
                     <li>
                         <Link to="/">
                             {useLocation().pathname === "/" &&
-                                    <img src={exploreblue} width="25px" height="25px" />
+                                    <img src={exploreblue} width="25px" height="25px" alt="explorelogo" />
                             }
                             {useLocation().pathname === "/saved" &&
-                                    <img src={exploreblack} width="25px" height="25px" />
+                                    <img src={exploreblack} width="25px" height="25px" alt="explorelogo" />
                             }
                         </Link>
                         <Link to="/" className={`linked ${useLocation().pathname === "/" ? "here" : ""}`}>Explore</Link>
@@ -101,10 +98,10 @@ export const Navbar = () => {
                     <li>
                         <Link to="/saved">
                             {useLocation().pathname === "/" &&
-                                <img src={savedblack} width="25px" height="25px" />
+                                <img src={savedblack} width="25px" height="25px" alt="savedlogo" />
                             }
                             {useLocation().pathname === "/saved" &&
-                                <img src={savedblue} width="25px" height="25px" />
+                                <img src={savedblue} width="25px" height="25px" alt="savedlogo" />
                             }
                         </Link>
                         <Link to="/saved" className={`linked ${useLocation().pathname === "/saved" ? "here" : ""}`}>Saved</Link>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Style } from './style'
 import { InMemoryCache, ApolloClient, gql } from '@apollo/client'
 
@@ -9,10 +9,9 @@ import savedpic from './assets/saved.svg'
 export const ImageContainerSaved = ({ id, saved, setSaved, className }) => {
     const [description, setDescription] = useState('')
     const [imageUrl, setImageUrl] = useState('')
-    const [loading, setLoading] = useState(false)
 
     const unsaveMeme = () => {
-        setSaved(saved.filter((item) => item != id))
+        setSaved(saved.filter((item) => item !== id))
     }
 
     const client = new ApolloClient({
@@ -36,7 +35,6 @@ export const ImageContainerSaved = ({ id, saved, setSaved, className }) => {
     }).then(result => {
         setDescription(result.data.memes[0].description)
         setImageUrl(result.data.memes[0].image_url)
-        setLoading(false)
     })
     
     return (
@@ -44,6 +42,7 @@ export const ImageContainerSaved = ({ id, saved, setSaved, className }) => {
             <img
                 src={imageUrl}
                 className={className}
+                alt="meme"
             />
             <div className="wrapper">
                 <div className="wrapper-inner">
@@ -51,7 +50,7 @@ export const ImageContainerSaved = ({ id, saved, setSaved, className }) => {
                         <h4>{description}</h4>
                     </div>
                     <div className="right" onClick={() => unsaveMeme()}>
-                        <img src={savedpic} width="25px" height="25px" />
+                        <img src={savedpic} width="25px" height="25px" alt="savedlogo" />
                         <h4>Saved</h4>
                     </div>
                 </div>

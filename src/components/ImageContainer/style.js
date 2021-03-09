@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import Background from './assets/UnicornVectorGradient_20.jpg'
 
 export const Style = styled.div`
-    /* background-color: yellow; */
     position: relative;
     .wrapper {
         cursor: pointer;
@@ -23,7 +22,6 @@ export const Style = styled.div`
             .left {
                 height: 100%;
                 width: 65%;
-                /* background-color: red; */
                 border-bottom-left-radius: 8px;
                 display: flex;
                 align-items: center;
@@ -36,7 +34,6 @@ export const Style = styled.div`
             .right {
                 height: 100%;
                 width: 35%;
-                /* background-color: yellow; */
                 border-bottom-right-radius: 8px;
                 display: flex;
                 align-items: center;

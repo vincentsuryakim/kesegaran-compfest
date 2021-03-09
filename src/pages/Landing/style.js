@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Style = styled.div`
-    /* background-color: red; */
     width: 100vw;
     height: auto;
     min-height: 100vh;
@@ -13,7 +12,6 @@ export const Style = styled.div`
     }
 
     .content {
-        /* background-color: red; */
         min-height: ${props => props.initialPage ? "calc(100vh - 85px - 85px - 3vh)" : "calc(100vh - 85px - 85px - 3vh - 65px)"};
         padding-top: ${props => props.initialPage ? "85px" : "150px"};
         display: flex;
@@ -51,7 +49,6 @@ export const Style = styled.div`
             }
         }
         .searched-content {
-            /* background-color: yellow; */
             width: 80%;
             display: flex;
             align-items: center;
@@ -68,8 +65,6 @@ export const Style = styled.div`
         background-color: #F6F6F6;
         width: 100%;
         margin-top: 3vh;
-        /* position: fixed;
-        bottom: 0; */
         height: 85px;
         display: flex;
         align-items: center;
@@ -80,19 +75,18 @@ export const Style = styled.div`
 
         footer {
             width: 100%;
-            /* padding-top: 2rem;
-            padding-bottom: 2rem; */
             display: flex;
             flex-direction: row;
+            align-items: center;
             justify-content: space-between;
-            /* background-color: red; */
             .title {
                 padding-left: 5rem;
                 display: flex;
                 align-items: center;
-                a {
+                p {
                     margin-left: 0.3rem;
                     font-weight: 800;
+                    font-size: 18px;
                 }
             }
             .social {

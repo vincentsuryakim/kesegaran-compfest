@@ -12,7 +12,7 @@ export const ImageContainer = ({ src, className, description, isSaved, saved, se
         if (!isSaved) {
             setSaved([...saved, id])
         } else {
-            setSaved(saved.filter((item) => item != id))
+            setSaved(saved.filter((item) => item !== id))
         }
     }
     
@@ -21,6 +21,7 @@ export const ImageContainer = ({ src, className, description, isSaved, saved, se
             <img
                 src={src}
                 className={className}
+                alt="meme"
             />
             <div className="wrapper">
                 <div className="wrapper-inner">
@@ -30,13 +31,13 @@ export const ImageContainer = ({ src, className, description, isSaved, saved, se
                     <div className="right" onClick={() => saveMeme()}>
                         {isSaved &&
                             <>
-                                <img src={savedpic} width="24px" height="24px" />
+                                <img src={savedpic} width="24px" height="24px" alt="savedlogo" />
                                 <h4><span>Saved</span></h4>
                             </>
                         }
                         {!isSaved &&
                             <>
-                                <img src={savepic} width="24px" height="24px" />
+                                <img src={savepic} width="24px" height="24px" alt="savelogo" />
                                 <h4>Save</h4>
                             </>
                         }

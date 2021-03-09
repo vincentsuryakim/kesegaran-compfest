@@ -11,7 +11,6 @@ export const Style = styled.div`
     min-height: 100vh;
 
     .content {
-        /* background-color: red; */
         min-height: calc(100vh - 85px - 85px - 3vh - 65px);
         padding-top: 150px;
         display: flex;
@@ -19,11 +18,9 @@ export const Style = styled.div`
         flex-direction: column;
         .title {
             font-size: 18px;
-            /* background-color: green; */
             margin-bottom: 2rem;
         }
         .saved-content {
-            /* background-color: yellow; */
             width: 80%;
             display: flex;
             align-items: center;
@@ -37,7 +34,6 @@ export const Style = styled.div`
                 align-items: center;
                 justify-content: center;
                 .no-memes-inner {
-                    /* background-color: yellow; */
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -83,15 +79,18 @@ export const Style = styled.div`
 
         footer {
             width: 100%;
-            /* padding-top: 2rem;
-            padding-bottom: 2rem; */
             display: flex;
+            align-items: center;
             flex-direction: row;
             justify-content: space-between;
             .title {
                 padding-left: 5rem;
-                a {
+                display: flex;
+                align-items: center;
+                p {
+                    margin-left: 0.3rem;
                     font-weight: 800;
+                    font-size: 18px;
                 }
             }
             .social {
